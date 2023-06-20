@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:twitchui/Ui/Screens/home.dart';
 import 'package:twitchui/Ui/primaries/Colors.dart';
 
 class signUpScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class signUpScreen extends StatefulWidget {
 class _signUpScreenState extends State<signUpScreen> {
   @override
   Widget build(BuildContext context) {
-    var schema = new colorSchema();
+    var schema = colorSchema();
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -95,7 +96,12 @@ class _signUpScreenState extends State<signUpScreen> {
                               Colors.white, // background (button) color
                           foregroundColor: schema.primary50, //
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const homeScreen()));
+                        },
                         child: Container(
                             padding: EdgeInsets.all(20),
                             width: MediaQuery.of(context).size.width / 2,
@@ -161,6 +167,7 @@ class _signUpScreenState extends State<signUpScreen> {
 
   Widget platformWidget(logo, borderColor) {
     return InkWell(
+      onTap: () {},
       child: Container(
         height: 50,
         width: MediaQuery.of(context).size.width * .2,
